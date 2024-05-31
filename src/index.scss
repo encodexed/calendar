@@ -1,0 +1,9 @@
+@use "./styles/base.scss";
+
+:root {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: base.$palette4;
+	color: base.$palette1;
+	margin: 0;
+	padding: 0;
+}
