@@ -1,12 +1,26 @@
 @use "./styles/base.scss";
 
-.container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.app {
 	height: 100vh;
+	width: 100%;
+	margin: 0;
+	position: relative;
 }
 
-h1 {
-	color: base.$palette2;
+header {
+	height: 50px;
+	width: 100%;
+}
+
+main {
+	min-height: 100%;
+	margin-top: 50px;
+	margin-bottom: 250px;
+}
+
+footer {
+	height: 250px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }

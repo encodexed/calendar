@@ -2,8 +2,14 @@
 
 :root {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background-color: base.$palette4;
-	color: base.$palette1;
+	background-color: base.$palette1;
+	color: base.$palette4;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+body {
 	margin: 0;
 	padding: 0;
 }
