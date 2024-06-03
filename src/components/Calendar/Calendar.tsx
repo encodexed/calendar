@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Calendar.module.scss";
 import { ICalendarDay } from "../../services/interfaces";
 import { getCalendarDays } from "../../services/scripts";
+import DayCard from "../DayCard/DayCard";
 
 // get today's date
 // get the date 3 months ago
@@ -18,7 +19,7 @@ const Calendar = () => {
 	return (
 		<section className={styles.calendar}>
 			{calendarDays.map((day) => {
-				return <div key={day.date.toISOString()}>{day.date.toISOString()}</div>;
+				return <DayCard key={day.date.toISOString()} data={day} />;
 			})}
 		</section>
 	);
