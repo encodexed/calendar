@@ -4,6 +4,8 @@ export interface ICalendarDay {
 }
 
 export interface IEvent {
+	id: number;
+	category: string;
 	title: string;
 	startDT: Date;
 	finishDT: Date;
@@ -14,15 +16,6 @@ export interface IEvent {
 }
 
 export interface CalendarCtx {
-	events: CalendarEvent[];
+	events: IEvent[];
 	updateEvents: () => void;
-}
-
-export interface CalendarEvent {
-	category: string;
-	title: string;
-	startDT: Date;
-	finishDT: Date;
-	location: string;
-	body: string;
 }

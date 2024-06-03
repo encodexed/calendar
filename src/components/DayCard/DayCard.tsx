@@ -47,6 +47,9 @@ const DayCard = ({ data }: Props) => {
 	return (
 		<div className={styles.card}>
 			<p>{date}</p>
+			{data.events.map((ev) => {
+				return <p key={ev.id}>{ev.title}</p>;
+			})}
 		</div>
 	);
 };
