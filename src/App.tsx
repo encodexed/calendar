@@ -1,20 +1,14 @@
 import styles from "./App.module.scss";
-import DayInfo from "./components/DayInfo";
-import MidSection from "./components/MidSection";
-import NavBar from "./components/NavBar";
+import DayInfo from "./components/DayInfo/DayInfo";
+import MidSection from "./components/MidSection/MidSection";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
 	return (
 		<div className={styles.app}>
-			<header>
-				<NavBar />
-			</header>
-			<main>
-				<MidSection />
-			</main>
-			<footer>
-				<DayInfo />
-			</footer>
+			<NavBar />
+			<MidSection />
+			<DayInfo />
 		</div>
 	);
 };

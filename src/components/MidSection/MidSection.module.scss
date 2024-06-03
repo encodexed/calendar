@@ -1,0 +1,21 @@
+.main {
+	height: calc(100vh - 330px);
+	width: 100%;
+	display: flex;
+
+	&_calendar {
+		width: 70%;
+		height: calc(100% - 50px);
+		overflow: scroll;
+		margin: 25px 20px;
+		// overscroll-behavior: none;
+	}
+
+	&_event {
+		width: calc(30% - 20px);
+		height: 100%;
+		box-sizing: border-box;
+		border-left: 3px solid gray;
+		padding: 25px 20px;
+	}
+}
