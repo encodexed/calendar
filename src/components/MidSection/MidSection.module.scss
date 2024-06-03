@@ -3,14 +3,6 @@
 	width: 100%;
 	display: flex;
 
-	&_calendar {
-		width: 70%;
-		height: calc(100% - 50px);
-		overflow: scroll;
-		margin: 25px 20px;
-		// overscroll-behavior: none;
-	}
-
 	&_event {
 		width: calc(30% - 20px);
 		height: 100%;

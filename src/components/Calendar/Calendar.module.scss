@@ -1,0 +1,7 @@
+.calendar {
+	width: 70%;
+	height: calc(100% - 50px);
+	overflow: scroll;
+	margin: 25px 20px;
+	// overscroll-behavior: none;
+}
