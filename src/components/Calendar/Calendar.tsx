@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import styles from "./Calendar.module.scss";
 import { ICalendarDay } from "../../services/interfaces";
-import { getCalendarDays } from "../../services/scripts";
+import { getCalendarDays, makeCalendar } from "../../services/scripts";
 import DayCard from "../DayCard/DayCard";
 import { CalendarContext } from "../../context/CalendarContextProvider";
 
@@ -22,34 +22,18 @@ const Calendar = () => {
 
 	useEffect(() => {
 		setCalendarDays((prev) => {
-			const newCalendar = [...prev];
-			const earliest: Date = newCalendar[0].date;
-			events.forEach((ev) => {
-				const dateEv = new Date(ev.startDT.toUTCString());
-				const dateEarl = new Date(earliest.toUTCString());
-				const diff = +dateEv - +dateEarl;
-				const daysDiff = Math.floor(Math.round(diff / 1000) / 60 / 60 / 24);
-
-				// check if event already exists
-				let duplicateFound = false;
-				newCalendar[daysDiff].events.forEach((eve) => {
-					if (ev.id === eve.id) duplicateFound = true;
-				});
-
-				if (!duplicateFound) {
-					console.log("pushing an event to calendar");
-					newCalendar[daysDiff].events.push(ev);
-				}
-			});
-
-			return newCalendar;
+			const clonedCal = [...prev];
+			const newCal = makeCalendar(clonedCal, events);
+			return newCal;
 		});
 	}, [events]);
 
 	return (
 		<section className={styles.calendar}>
-			{calendarDays.map((day) => {
-				return <DayCard key={day.date.toISOString()} data={day} />;
+			{calendarDays.map((day, index) => {
+				return (
+					<DayCard key={day.date.toISOString()} data={day} index={index} />
+				);
 			})}
 		</section>
 	);

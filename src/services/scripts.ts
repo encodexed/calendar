@@ -1,3 +1,5 @@
+import { ICalendarDay, IEvent } from "./interfaces";
+
 export const getCalendarDays = () => {
 	const daysArr = [];
 	const past = new Date();
@@ -14,4 +16,31 @@ export const getCalendarDays = () => {
 	}
 
 	return daysArr;
+};
+
+export const makeCalendar = (
+	newCal: ICalendarDay[],
+	events: IEvent[]
+): ICalendarDay[] => {
+	const earliest: Date = newCal[0].date;
+	// Assign events from database onto the days they occur
+	events.forEach((ev) => {
+		const dateEv = new Date(ev.startDT.toUTCString());
+		const dateEarl = new Date(earliest.toUTCString());
+		const diff = +dateEv - +dateEarl;
+		const daysDiff = Math.floor(Math.round(diff / 1000) / 60 / 60 / 24);
+
+		// check if event already exists
+		let duplicateFound = false;
+		newCal[daysDiff].events.forEach((eve) => {
+			if (ev.id === eve.id) duplicateFound = true;
+		});
+
+		if (!duplicateFound) {
+			console.log("pushing an event to calendar");
+			newCal[daysDiff].events.push(ev);
+		}
+	});
+
+	return newCal;
 };
