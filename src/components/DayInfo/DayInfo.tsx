@@ -25,7 +25,7 @@ const DayInfo = () => {
 			<footer className={styles.footer}>
 				{eventsToday.length > 0 &&
 					eventsToday.map((eve) => {
-						return <EventCard key={eve.id} />;
+						return <EventCard key={eve.id} data={eve} />;
 					})}
 				{eventsToday.length == 0 && (
 					<div className={styles.footer_empty}>No events for today.</div>

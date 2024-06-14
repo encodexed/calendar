@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { CalendarCtx, IEvent } from "../services/interfaces";
 
+// ! These events are entered into GMT, so they may appear on the wrong days
 const initEventState: IEvent[] = [
 	{
 		id: 1,
@@ -21,6 +22,17 @@ const initEventState: IEvent[] = [
 		finishDT: new Date("June 1, 2024 12:45:00"),
 		location: "Remote",
 		body: "Zoom link dfbdfadkjfha",
+		isRecurring: false,
+		recurInterval: "none",
+	},
+	{
+		id: 3,
+		category: "work",
+		title: "Fire Derek",
+		startDT: new Date("June 3, 2024 15:15:00"),
+		finishDT: new Date("June 3, 2024 15:30:00"),
+		location: "64 Cardigan St, Stanmore NSW 2048",
+		body: "Be as quick as possible.",
 		isRecurring: false,
 		recurInterval: "none",
 	},
