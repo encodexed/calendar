@@ -1,8 +1,8 @@
 import { useEffect, useRef, useContext } from "react";
 import { ICalendarDay } from "../../services/interfaces";
-import CalendarEvent from "../CalendarEvent/CalendarEvent";
 import styles from "./DayCard.module.scss";
 import { CalendarContext } from "../../context/CalendarContextProvider";
+import DayContent from "../DayContent/DayContent";
 
 type Props = {
 	data: ICalendarDay;
@@ -10,7 +10,6 @@ type Props = {
 };
 
 const DayCard = ({ data, index }: Props) => {
-	const date = data.date.getDate();
 	const todayRef = useRef<HTMLDivElement>(null);
 	const { selectDay, selectedDay } = useContext(CalendarContext);
 
@@ -28,19 +27,12 @@ const DayCard = ({ data, index }: Props) => {
 	if (index == 90) {
 		return (
 			<div className={styles.card_today} ref={todayRef} onClick={clickHandler}>
-				<div className={styles.card_header}>{date}</div>
-				<div className={styles.card_events}>
-					{data.events.map((ev) => {
-						return (
-							<CalendarEvent key={ev.id} time={ev.startDT} title={ev.title} />
-						);
-					})}
-				</div>
+				<DayContent data={data} />
 			</div>
 		);
 	}
 
-	// If this day is selected
+	/* If this day is selected */
 	if (index == selectedDay) {
 		return (
 			<div
@@ -48,28 +40,14 @@ const DayCard = ({ data, index }: Props) => {
 				ref={todayRef}
 				onClick={clickHandler}
 			>
-				<div className={styles.card_header}>{date}</div>
-				<div className={styles.card_events}>
-					{data.events.map((ev) => {
-						return (
-							<CalendarEvent key={ev.id} time={ev.startDT} title={ev.title} />
-						);
-					})}
-				</div>
+				<DayContent data={data} />
 			</div>
 		);
 	}
 
 	return (
 		<div className={styles.card} ref={todayRef} onClick={clickHandler}>
-			<div className={styles.card_header}>{date}</div>
-			<div className={styles.card_events}>
-				{data.events.map((ev) => {
-					return (
-						<CalendarEvent key={ev.id} time={ev.startDT} title={ev.title} />
-					);
-				})}
-			</div>
+			<DayContent data={data} />
 		</div>
 	);
 };

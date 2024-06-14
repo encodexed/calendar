@@ -6,7 +6,7 @@
 	height: 150px;
 	width: 150px;
 	margin: 0;
-	padding: 2px;
+	padding: 4px;
 	transition: all 0.2s;
 	cursor: pointer;
 
@@ -15,9 +15,8 @@
 	}
 
 	&_today {
+		@extend .card;
 		border: 2px solid #f08;
-		border-radius: 5px;
-		transition: all 0.2s;
 
 		&:hover {
 			border: 2px solid #ff92cc;
@@ -25,9 +24,8 @@
 	}
 
 	&_selected {
+		@extend .card;
 		border: 2px solid #009a5a;
-		border-radius: 5px;
-		transition: all 0.2s;
 
 		&:hover {
 			border: 2px solid #00d77e;
