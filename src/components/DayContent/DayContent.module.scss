@@ -5,4 +5,10 @@
 		color: purple;
 		margin-bottom: 4px;
 	}
+
+	&_events {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
 }

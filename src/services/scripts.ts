@@ -43,3 +43,10 @@ export const makeCalendar = (
 
 	return newCal;
 };
+
+export const getDateOfCalendarIndex = (index: number) => {
+	const day = new Date();
+	const daysDiff = index - 90;
+	day.setDate(day.getDate() + daysDiff);
+	return day;
+};

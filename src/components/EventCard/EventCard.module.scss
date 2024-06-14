@@ -1,0 +1,14 @@
+.event_card {
+	height: 200px;
+	width: 200px;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	padding: 4px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: all 0.2s;
+
+	&:hover {
+		border: 2px solid #09f;
+	}
+}
