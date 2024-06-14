@@ -18,4 +18,6 @@ export interface IEvent {
 export interface CalendarCtx {
 	events: IEvent[];
 	updateEvents: () => void;
+	selectedDay: number;
+	selectDay: (day: number) => void;
 }

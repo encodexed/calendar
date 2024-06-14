@@ -37,7 +37,6 @@ export const makeCalendar = (
 		});
 
 		if (!duplicateFound) {
-			console.log("pushing an event to calendar");
 			newCal[daysDiff].events.push(ev);
 		}
 	});

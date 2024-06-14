@@ -14,7 +14,6 @@ import { CalendarContext } from "../../context/CalendarContextProvider";
 
 const Calendar = () => {
 	const { events } = useContext(CalendarContext);
-	console.log({ events });
 
 	const [calendarDays, setCalendarDays] = useState<ICalendarDay[]>(
 		getCalendarDays()
