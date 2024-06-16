@@ -14,9 +14,23 @@ const EventInfo = () => {
 		);
 	}
 
+	const { title, startDT, finishDT, body, location } = selectedEvent;
+
 	return (
 		<div className={styles.event_info}>
-			<h2>{selectedEvent.title}</h2>
+			<div className={styles.event_content}>
+				<h2>{title}</h2>
+				<strong className={styles.event_time}>
+					{startDT.toTimeString().substring(0, 5)} -{" "}
+					{finishDT.toTimeString().substring(0, 5)}
+				</strong>
+				<p>{location}</p>
+				<p>{body}</p>
+			</div>
+			<div className={styles.event_actions}>
+				<button className={styles.event_actions_edit}>Edit Event</button>
+				<button className={styles.event_actions_delete}>Delete Event</button>
+			</div>
 		</div>
 	);
 };

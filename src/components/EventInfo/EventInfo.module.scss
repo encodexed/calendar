@@ -1,11 +1,53 @@
-.event_info {
-	height: 100%;
-	width: 100%;
-	padding: 25px 20px;
+@use "../../styles/categories.scss";
 
-	& > h2 {
-		padding: 0;
-		margin: 0;
+.event {
+	&_info {
+		padding: 25px 20px;
+		box-sizing: border-box;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&_content {
+		& > h2 {
+			padding: 0;
+			margin: 0;
+			color: categories.$blue;
+		}
+	}
+
+	&_actions {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+		flex-wrap: wrap;
+
+		& > button {
+			border: 2px solid transparent;
+			padding: 6px 10px;
+			border-radius: 15px;
+		}
+
+		&_edit {
+			background-color: categories.$green;
+			color: white;
+
+			&:hover {
+				background-color: categories.$green-hover;
+			}
+		}
+
+		&_delete {
+			background-color: categories.$red;
+			color: white;
+
+			&:hover {
+				background-color: categories.$red-hover;
+			}
+		}
 	}
 }
 
