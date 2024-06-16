@@ -1,8 +1,11 @@
+@use "../../styles/categories.scss";
+@use "../../styles/base.scss";
+
 .card {
 	box-sizing: border-box;
 	border: 2px solid transparent;
 	border-radius: 5px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: base.$box-shadow;
 	height: 150px;
 	width: 150px;
 	margin: 0;
@@ -11,31 +14,26 @@
 	cursor: pointer;
 
 	&:hover {
-		border: 2px solid #09f;
+		box-shadow: base.$box-shadow-hover;
 	}
 
 	&_today {
 		@extend .card;
-		border: 2px solid #f08;
+		border: 2px solid categories.$red;
 
 		&:hover {
-			border: 2px solid #ff92cc;
+			border: 2px solid categories.$red-hover;
+			box-shadow: base.$box-shadow-hover;
 		}
 	}
 
 	&_selected {
 		@extend .card;
-		border: 2px solid #009a5a;
+		border: 2px solid categories.$blue;
 
 		&:hover {
-			border: 2px solid #00d77e;
+			border: 2px solid categories.$blue-hover;
+			box-shadow: base.$box-shadow-hover;
 		}
-	}
-
-	&_header {
-		font-size: 18px;
-		min-width: 28px;
-		color: purple;
-		margin-bottom: 4px;
 	}
 }

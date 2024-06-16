@@ -1,10 +1,12 @@
 import styles from "./NavBar.module.scss";
+import icon from "../../assets/calendar-icon.svg";
 
 const NavBar = () => {
 	return (
 		<header className={styles.header}>
 			<nav className={styles.nav}>
 				<div className={styles.nav_left}>
+					<img className={styles.icon} src={icon} alt='icon' />
 					<h2>Calendar</h2>
 				</div>
 				<div className={styles.nav_right}>

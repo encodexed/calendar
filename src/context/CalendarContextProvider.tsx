@@ -3,6 +3,7 @@ import { CalendarCtx, IEvent } from "../services/interfaces";
 
 // ! These events are entered into GMT, so they may appear on the wrong days
 // TODO Fix event timezones
+// TODO When rendering calendar cards, give them an ID that can be used to read what the date is
 const initEventState: IEvent[] = [
 	{
 		id: 1,

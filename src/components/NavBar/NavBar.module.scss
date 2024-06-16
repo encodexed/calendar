@@ -18,6 +18,8 @@
 	&_left {
 		height: 100%;
 		width: auto;
+		display: flex;
+		align-items: center;
 	}
 
 	&_right {
@@ -40,4 +42,9 @@
 			color: green;
 		}
 	}
+}
+
+.icon {
+	width: 64px;
+	height: auto;
 }
