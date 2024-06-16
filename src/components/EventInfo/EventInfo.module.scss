@@ -1,0 +1,25 @@
+.event_info {
+	height: 100%;
+	width: 100%;
+	padding: 25px 20px;
+
+	& > h2 {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.no_event {
+	height: 100%;
+	width: 100%;
+	padding: 25px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	& > h2 {
+		padding: 0;
+		margin: 0;
+		color: gray;
+	}
+}
