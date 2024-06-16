@@ -1,13 +1,12 @@
-import { IEvent } from "../../services/interfaces";
 import styles from "./EventInfo.module.scss";
+import { useContext } from "react";
+import { CalendarContext } from "../../context/CalendarContextProvider";
 
-type Props = {
-	data: IEvent;
-};
+const EventInfo = () => {
+	const { selectedEvent } = useContext(CalendarContext);
 
-const EventInfo = ({ data }: Props) => {
 	/* If no event selected */
-	if (!data) {
+	if (!selectedEvent) {
 		return (
 			<div className={styles.no_event}>
 				<h2>Select an event.</h2>
@@ -17,7 +16,7 @@ const EventInfo = ({ data }: Props) => {
 
 	return (
 		<div className={styles.event_info}>
-			<h2>{data.title}</h2>
+			<h2>{selectedEvent.title}</h2>
 		</div>
 	);
 };

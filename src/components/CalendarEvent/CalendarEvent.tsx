@@ -1,19 +1,27 @@
+import { useContext } from "react";
 import styles from "./CalendarEvent.module.scss";
+import { CalendarContext } from "../../context/CalendarContextProvider";
+import { IEvent } from "../../services/interfaces";
 
 type Props = {
-	time: Date;
-	title: string;
+	event: IEvent;
 };
 
-const CalendarEvent = ({ time, title }: Props) => {
-	const hour = time.getHours();
-	const mins = time.getMinutes();
+const CalendarEvent = ({ event }: Props) => {
+	const { selectEvent } = useContext(CalendarContext);
+
+	const hour = event.startDT.getHours();
+	const mins = event.startDT.getMinutes();
 	const eventTime = `${hour}:${mins}`;
 
+	const clickHandler = () => {
+		selectEvent(event);
+	};
+
 	return (
-		<div className={styles.event}>
+		<div className={styles.event} onClick={clickHandler}>
 			<div className={styles.time}>{eventTime}</div>
-			<div className={styles.title}>{title}</div>
+			<div className={styles.title}>{event.title}</div>
 		</div>
 	);
 };

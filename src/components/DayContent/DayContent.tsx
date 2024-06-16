@@ -14,9 +14,7 @@ const DayContent = ({ data }: Props) => {
 			<div className={styles.content_header}>{date}</div>
 			<div className={styles.content_events}>
 				{data.events.map((ev) => {
-					return (
-						<CalendarEvent key={ev.id} time={ev.startDT} title={ev.title} />
-					);
+					return <CalendarEvent key={ev.id} event={ev} />;
 				})}
 			</div>
 		</>

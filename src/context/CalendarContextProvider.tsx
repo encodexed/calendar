@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { CalendarCtx, IEvent } from "../services/interfaces";
 
 // ! These events are entered into GMT, so they may appear on the wrong days
+// TODO Fix event timezones
 const initEventState: IEvent[] = [
 	{
 		id: 1,
@@ -43,6 +44,8 @@ export const CalendarContext = createContext<CalendarCtx>({
 	updateEvents: () => {},
 	selectedDay: 90,
 	selectDay: () => {},
+	selectedEvent: null,
+	selectEvent: () => {},
 });
 
 const CalendarContextProvider = ({
@@ -52,6 +55,7 @@ const CalendarContextProvider = ({
 }) => {
 	const [events, setEvents] = useState<IEvent[]>(initEventState);
 	const [selectedDay, setSelectedDay] = useState<number>(90);
+	const [selectedEvent, setSelectedEvent] = useState<IEvent | null>(null);
 
 	// Does nothing for now
 	const updateEvents = () => {
@@ -62,6 +66,10 @@ const CalendarContextProvider = ({
 		setSelectedDay(day);
 	};
 
+	const selectEvent = (event: IEvent) => {
+		setSelectedEvent(event);
+	};
+
 	return (
 		<CalendarContext.Provider
 			value={{
@@ -69,6 +77,8 @@ const CalendarContextProvider = ({
 				updateEvents,
 				selectedDay,
 				selectDay,
+				selectedEvent,
+				selectEvent,
 			}}
 		>
 			{children}
